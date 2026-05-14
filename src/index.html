@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #predictions {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+
+    <form id="predictionForm">
+        <!-- Input fields for features -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label>Sex:</label>
+        <input type="radio" id="male" name="sex" value="1" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="0" required>
+        <label for="female">Female</label>
+
+        <label>Chest Pain Type:</label>
+        <select id="cp" name="cp" required>
+            <option value="0">Typical Angina</option>
+            <option value="1">Atypical Angina</option>
+            <option value="2">Non-anginal Pain</option>
+            <option value="3">Asymptomatic</option>
+        </select>
+
+        <label for="trestbps">Resting Blood Pressure:</label>
+        <input type="number" id="trestbps" name="trestbps" required>
+
+        <label for="chol">Serum Cholesterol:</label>
+        <input type="number" id="chol" name="chol" required>
+
+        <label for="fbs">Fasting Blood Sugar:</label>
+        <input type="number" id="fbs" name="fbs" required>
+
+        <label for="restecg">Resting Electrocardiographic Results:</label>
+        <select id="restecg" name="restecg" required>
+            <option value="0">Normal</option>
+            <option value="1">ST-T Wave Abnormality</option>
+            <option value="2">Probable or Definite LVH</option>
+        </select>
+
+        <label for="thalach">Maximum Heart Rate Achieved:</label>
+        <input type="number" id="thalach" name="thalach" required>
+
+        <label for="exang">Exercise Induced Angina:</label>
+        <input type="radio" id="exangNo" name="exang" value="0" required>
+        <label for="exangNo">No</label>
+        <input type="radio" id="exangYes" name="exang" value="1" required>
+        <label for="exangYes">Yes</label>
+
+        <label for="oldpeak">Oldpeak:</label>
+        <input type="number" id="oldpeak" name="oldpeak" required>
+
+        <label for="slope">Slope of the Peak Exercise ST Segment:</label>
+        <select id="slope" name="slope" required>
+            <option value="0">Up Sloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Down Sloping</option>
+        </select>
+
+        <label for="ca">Number of Major Vessels (0-3) Colored by Fluoroscopy:</label>
+        <select id="ca" name="ca" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <label for="thal">Thalassemia:</label>
+        <select id="thal" name="thal" required>
+            <option value="0">NULL</option>
+            <option value="1">Normal</option>
+            <option value="2">Fixed Defect</option>
+            <option value="3">Reversible Defect</option>
+        </select>
+
+        <!-- Button to trigger prediction -->
+        <button type="button" onclick="predict()">Predict</button>
+    </form>
+
+    <!-- Display predictions here -->
+    <div id="predictions"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
